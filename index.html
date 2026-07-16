@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinesh S — Software Developer Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Dinesh S, ECE student and aspiring Software Developer skilled in Java, Front-End, and Generative AI." />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0b1020;
+            --bg-2: #111830;
+            --card: #151d3b;
+            --text: #e6ebff;
+            --muted: #9aa5c9;
+            --accent: #6ee7ff;
+            --accent-2: #a78bfa;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: radial-gradient(1200px 600px at 10% -10%, rgba(110, 231, 255, 0.15), transparent 60%),
+                radial-gradient(900px 500px at 100% 0%, rgba(167, 139, 250, 0.15), transparent 60%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header.nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(11, 16, 32, 0.7);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 18px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+            transition: color .2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 90px 24px 60px;
+            text-align: center;
+        }
+
+        .hero .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(120deg, #fff 0%, var(--accent) 60%, var(--accent-2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 680px;
+            margin: 0 auto 28px;
+            font-size: 17px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .chip {
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: transform .2s, border-color .2s;
+        }
+
+        .chip:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .section-heading {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: linear-gradient(180deg, var(--card), var(--bg-2));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform .25s, border-color .25s, box-shadow .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(110, 231, 255, 0.4);
+            box-shadow: 0 20px 40px -20px rgba(110, 231, 255, 0.25);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .card .meta {
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            background: rgba(110, 231, 255, 0.08);
+            border: 1px solid rgba(110, 231, 255, 0.2);
+            color: var(--accent);
+        }
+
+        .cert-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .cert-list li {
+            padding: 14px 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 14px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cert-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s, transform .6s;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                margin-left: 14px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="logo">DINESH.S</div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certs">Certs</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <span class="tag">Aspiring Software Developer</span>
+        <h1>Dinesh S</h1>
+        <p>Electronics &amp; Communication Engineering student passionate about building intelligent applications with
+            Java, Front-End tech, and Generative AI.</p>
+        <div class="contact-row">
+            <a class="chip" href="tel:+919043586372">📞 +91 9043586372</a>
+            <a class="chip" href="mailto:dineshsomu1234@gmail.com">✉️ dineshsomu1234@gmail.com</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">🔗 LinkedIn</a>
+            <a class="chip" href="https://github.com/Dinesh-S-006" target="_blank" rel="noopener">💻 GitHub</a>
+        </div>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="section-title">Career Objective</div>
+        <h2 class="section-heading">About Me</h2>
+        <div class="card">
+            <p>Aspiring Software Developer with a strong foundation in Java, problem-solving, and Generative AI
+                concepts. Seeking a challenging internship to develop intelligent applications, enhance technical
+                expertise, and contribute effectively to innovative AI-driven projects.</p>
+        </div>
+    </section>
+
+    <section id="education" class="reveal">
+        <div class="section-title">Education</div>
+        <h2 class="section-heading">Academic Background</h2>
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="meta">2023 – 2027</div>
+                <h3>B.E — Electronics &amp; Communication Engineering</h3>
+                <p>Nandha Engineering College (Autonomous), Erode<br /><strong style="color:var(--accent)">CGPA:
+                        8.70</strong> (5th Semester)</p>
+            </div>
+            <div class="card">
+                <div class="meta">2021 – 2023</div>
+                <h3>HSC</h3>
+                <p>Govt. Hr. Sec. School, Ganapathipalayam, Tirupur<br /><strong style="color:var(--accent)">Percentage:
+                        82%</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="reveal">
+        <div class="section-title">Technical Skills</div>
+        <h2 class="section-heading">What I Work With</h2>
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Programming Languages</h3>
+                <div class="skills" style="margin-top:12px">
+                    <span class="skill">Java</span><span class="skill">C</span><span class="skill">Embedded C</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Web Development</h3>
+                <div class="skills" style="margin-top:12px">
+                    <span class="skill">HTML</span><span class="skill">CSS</span><span
+                        class="skill">JavaScript</span><span class="skill">Front-End</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Core Concepts</h3>
+                <div class="skills" style="margin-top:12px">
+                    <span class="skill">OOPS</span><span class="skill">Data Structures</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Database</h3>
+                <div class="skills" style="margin-top:12px">
+                    <span class="skill">MySQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="reveal">
+        <div class="section-title">Projects</div>
+        <h2 class="section-heading">Things I've Built</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3>Student Certificate Management Portal</h3>
+                <p>Full-stack certificate management platform with role-based access, real-time dashboard, and automated
+                    department-wise point calculations using Excel.</p>
+            </div>
+            <div class="card">
+                <h3>AI Chatbot — Google Gemini API</h3>
+                <p>An AI chatbot powered by Google's Gemini API with a responsive HTML/CSS front-end for a smooth
+                    conversation experience.</p>
+            </div>
+            <div class="card">
+                <h3>Java Apps — Calculator &amp; Number Guessing Game</h3>
+                <p>Swing-based Calculator with scientific operations, and a Number Guessing Game with difficulty levels
+                    — applying OOP and event-driven programming.</p>
+            </div>
+            <div class="card">
+                <h3>Digital Dreamers Den (D3) Website</h3>
+                <p>Collaborated with the D3 team to design and develop their official company website.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="internship" class="reveal">
+        <div class="section-title">Internship</div>
+        <h2 class="section-heading">Experience</h2>
+        <div class="card">
+            <div class="meta">Jun 2025</div>
+            <h3>Embedded Systems Intern — Chip Crafts Technology</h3>
+            <p>Gained hands-on experience in Embedded Systems and programming fundamentals. Worked on debugging, system
+                integration, and hardware-software interaction.</p>
+        </div>
+    </section>
+
+    <section id="certs" class="reveal">
+        <div class="section-title">Certifications</div>
+        <h2 class="section-heading">Continuous Learning</h2>
+        <ul class="cert-list">
+            <li>Introduction to IoT — Elite + Silver | NPTEL</li>
+            <li>Cloud Computing — Elite | NPTEL</li>
+            <li>Ethical Hacking — Elite + Silver | NPTEL</li>
+            <li>OOPS — Coding Ninjas</li>
+            <li>UI/UX — Great Learning</li>
+            <li>Microsoft Excel Beginner to Advanced — Alison</li>
+            <li>Embedded Computer Vision using TensorFlow Lite</li>
+            <li>Oracle Cloud Infrastructure Generative AI (Professional)</li>
+        </ul>
+    </section>
+
+    <footer>
+        © <span id="year"></span> Dinesh S — Built with HTML, CSS &amp; JavaScript.
+    </footer>
+
+    <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth-scroll active link glow
+        document.querySelectorAll('nav a').forEach(a => {
+            a.addEventListener('click', () => {
+                a.style.color = 'var(--accent-2)';
+                setTimeout(() => a.style.color = '', 600);
+            });
+        });
+    </script>
+</body>
+
+</html>
